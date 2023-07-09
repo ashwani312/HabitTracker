@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&family=Ysabeau+Infant&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    height: 200vh;
+    background: linear-gradient(125deg, #153677, #4e085f);
+    object-fit: cover;
+    background-repeat: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+/*---------------------- navbar styled here--------- */
+
+.navbar {
+    height: 40px;
+    padding: 25px 20px;
+    background: linear-gradient(125deg, #122346, #110115);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar h4 {
+    color: aqua;
+}
+
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 25px;
+}
+/* ------------------habit Form styled here------------------ */
+
+.habitForm {
+    height: calc(40vh - 50px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+.habitForm form{
+    margin-top: 50px;
+}
+
+.habitForm input {
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 10px
+}
+
+.habitForm button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    font-size: 15px;
+    color: white;
+    background-color: purple;
+    border-radius: 7px
+}
+/* ------------------habit symbols styled here------------- */
+.habitForm .habitSymbols{
+    text-align: center;
+    margin: auto;
+    display: flex;
+    color: white;
+    gap: 20px;
+}
+.habitSymbols div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.habitResults {
+    height: max-content;
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.habitResults .habits {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    height: 140px;
+    width: 100%;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+.habits ul {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+/* ------------------------habit lists styled here */
+
+.habits ul li {
+    padding: 0px 10px;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 140px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    gap: 6px;
+    position: relative;
+}
+
+.habitList .habitName {
+    color: white;
+    font-size: 30px;
+
+}
+/* -----------------delete button styled here------------ */
+
+.habitList a .delete {
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    right: 10px;
+    top: 7px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.habitList #week {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: aqua;
+}
+
+.habitList .status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.status h3 {
+    border: 4px solid aqua;
+    border-radius: 50%;
+    padding: 7px 7px;
+    color: white;
+}
+
+/* -------------------all date Btn styled here-------------- */
+
+.habitList .dateBtn {
+    margin: auto;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+}
+
+
+.dateBtn .status a {
+    padding: 9px 8px;
+    border-radius: 50%;
+    color: white;
+}
+/* ----------------this is for resposive design--------------- */
+
+@media only screen and (max-width: 1200px) {
+   .habitList .dateBtn {
+    display: flex;
+
+        gap: 5px;
+    }
+
+    .status {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .status h3 {
+        border: 2px solid aqua;
+        padding:6px 4px;
+
+    }
+}
+
+@media only screen and (max-width: 970px) {
+    .habitList .dateBtn {
+     display: flex;
+         gap: 2px;
+     }
+
+ }

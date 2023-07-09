@@ -1,0 +1,104 @@
+<%- include("./partials/header"); -%>
+
+      <!---------------------- Habit Form to Enter a new habit ---------------->
+      <div class="habitForm">
+            <form action="/enterhabit" method="post">
+                  <input type="text" name="habitName" autofocus autocomplete="off" placeholder="Enter your habit Name">
+                  <button type="submit">add</button>
+            </form>
+
+            <!-- Habit Symbols identyfier -->
+            <% if(habits.length> 0){ %>
+                  <div class="habitSymbols">
+                        <div>
+                              <i class="fa-solid fa-circle-minus fa-2x" style="color: blue;"></i>
+                              <span>None</span>
+                        </div>
+                        <div>
+                              <i class="fa-solid fa-circle-check fa-2x" style="color: green;"></i>
+                              <span>Done</span>
+                        </div>
+                        <div>
+                              <i class="fa-sharp fa-solid fa-circle-xmark fa-2x" style="color: red;"></i>
+                              <span>Notdone</span>
+                        </div>
+                        <% } %>
+
+
+                  </div>
+      </div>
+
+
+
+
+      <!------------------------ Habit result section to enter a new habit on web----------------- -->
+      <div class="habitResults">
+
+            <div class="habits">
+                  <ul class="habitUL">
+                        <!------------------- Maping the Habits--------------------->
+                        <% habits.map((habit, index)=>{ %>
+                              <li class="habitList">
+                                    <h3 class="habitName">
+                                          <!-- -----Habit Name----- -->
+                                          <%=(habit.habitName).toUpperCase() %>
+                                    </h3>
+                                    <a href="/<%=habit._id%>">
+                                          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt=""
+                                                class="delete" title="..delete the habit...">
+                                    </a>
+                                    <h4 id="week">Days Marked
+                                          <%=habit.dates.length%> / 7
+                                                <% if(habit.dates.length===7){ %>
+                                                      <span style="color: green;">
+                                                            <%="👍"%>
+                                                      </span>
+                                                      <% } %>
+                                    </h4>
+
+                                    <div class="dateBtn">
+                                          <!-- -----------Maping the Days---------- -->
+                                          <%days.map((ele, key)=>{
+                                                let complete = 'pending';
+                                                habit.dates.find((item, itemIndex)=>{
+                                                if(item.date === ele){
+                                                complete = item.status;
+                                                }
+                                                })
+                                                %>
+                                                <table>
+                                                      <tr>
+                                                            <div class="status">
+
+                                                                  <h3>
+                                                                        <%= ele.slice(-2) %>
+                                                                  </h3>
+                                                                  <a
+                                                                        href="habitstatus/?id=<%=habit._id%>&date=<%=ele%>">
+
+                                                                        <% if(complete==="pending" ){ %>
+                                                                              <i  title="press to Done the habit status" class="fa-solid fa-circle-minus fa-2x"
+                                                                                    style="color: blue;"></i>
+                                                                              <% }else if( complete==="done" ){ %>
+                                                                                    <i title="press to Notdone the habit status" class="fa-solid fa-circle-check fa-2x"
+                                                                                          style="color: green;"></i>
+                                                                                    <% }else if(complete==="notdone" ){
+                                                                                          %>
+                                                                                        
+                                                                                                <i  title="press to pending the habit status" class="fa-sharp fa-solid fa-circle-xmark fa-2x"
+                                                                                                      style="color: red;"></i>
+
+                                                                                          <% } %>
+                                                                  </a>
+                                                            </div>
+                                                      </tr>
+                                                </table>
+                                                <% }) %>
+                                    </div>
+                              </li>
+                              <% }) %>
+                  </ul>
+            </div>
+      </div>
+
+      <%- include("./partials/footer"); -%>
